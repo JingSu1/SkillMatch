@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillMatch</title>
+
+     <!-- Bring in our bootstrap stylesheet -->
+     <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <div class="logo"></div>
+    <h1>SkillMatch</h1>
+    <form id="traineeSelectionForm">
+        <label for="academy">Academy:</label>
+        <select id="academy" name="academy">
+            <option value="any">Any</option>
+            <!-- Options will be populated dynamically -->
+        </select>
+        <br><br>
+        <label for="stream">Stream:</label>
+        <select id="stream" name="stream">
+            <option value="any">Any</option>
+            <!-- Options will be populated dynamically -->
+        </select>
+        <br><br>
+        <label for="course">Course:</label>
+        <select id="course" name="course">
+            <option value="any">Any</option>
+            <!-- Options will be populated dynamically -->
+        </select>
+        <br><br>
+        <label for="score">Minimum Score:</label>
+        <input type="text" id="score" name="score" placeholder="75">
+        <br><br>
+        <label for="sort">Sort By:</label>
+        <select id="sort" name="sort">
+            <option value="ID">ID</option>
+            <option value="Name">Name</option>
+            <option value="Score">Score</option>
+            <!-- Options will be populated dynamically -->
+        </select>
+        <br><br>
+        <button type="button" onclick="getTrainees()">Get Trainees</button>
+    </form>
+
+    <div id="traineeList">
+        <!-- Trainees meeting criteria will be displayed here -->
+    </div>
+
+    <script>
+        // Function to fetch data for dropdowns from MySQL database
+        function fetchData(url, selectId, optionTextKey, optionValueKey) {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    var select = document.getElementById(selectId);
+                    data.forEach(item => {
+                        var option = document.createElement("option");
+                        option.value = item[optionValueKey];
+                        option.textContent = item[optionTextKey];
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Fetch data for academies dropdown
+        fetchData('/api/academies', 'academy', 'city', 'academy_id');
+
+        // Fetch data for streams dropdown
+        fetchData('/api/streams', 'stream', 'name', 'stream_id');
+
+        // Fetch data for courses dropdown
+        fetchData('/api/courses', 'course', 'name', 'course_id');
+
+        // Function to get trainees based on selected criteria
+        function getTrainees() {
+            var academy = document.getElementById("academy").value;
+            var stream = document.getElementById("stream").value;
+            var course = document.getElementById("course").value;
+            var score = document.getElementById("score").value;
+            var sort = document.getElementById("sort").value;
+
+            fetch(`/api/trainees?academy=${academy}&stream=${stream}&course=${course}&score=${score}&sort=${sort}`)
+                .then(response => response.json())
+                .then(trainees => {
+                    displayTrainees(trainees);
+                })
+                .catch(error => console.error('Error fetching trainees:', error));
+        }
+
+        // Function to display trainees in the traineeList div
+        function displayTrainees(trainees) {
+            var traineeList = document.getElementById("traineeList");
+            traineeList.innerHTML = "<h2>Trainees who satisfy conditions:</h2>";
+            if (trainees.length === 0) {
+                traineeList.innerHTML += "<p>No trainees found.</p>";
+            } else {
+                var ul = document.createElement("ul");
+                trainees.forEach(trainee => {
+                    var li = document.createElement("li");
+                    li.textContent = trainee.name;
+                    ul.appendChild(li);
+                });
+                traineeList.appendChild(ul);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+/* CSS stylesheet for web application */
+
+/* Logo styling */
+.logo {
+    position: fixed;
+    bottom: 20%;
+    left: 35%;
+    width: 100%; 
+    height: 150px; 
+    background-image: url('https://media.licdn.com/dms/image/D4E16AQFvTqjumLAfBg/profile-displaybackgroundimage-shrink_200_800/0/1711395887921?e=2147483647&v=beta&t=SR3is6G4Rksizrk6N1abtASc16oHlOMCBOuTUJXjdyY');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Wallpaper styling */
+body {
+    background-image: url('https://fjwp.s3.amazonaws.com/blog/wp-content/uploads/2021/11/10093332/8-Ways-to-Figure-Out-What-Jobs-Match-Your-Skills.jpg'); 
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+/* Center-align and increase size of "Skill Match" title */
+h1 {
+    text-align: center;
+    font-size: 100px;
+    color:#8B008B;
+}
+/* Styling for labels */
+label {
+    background-color: #DA70D6; /* MediumOrchid */
+    padding: 15px 32px;
+    width: 100px; 
+    height: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px; 
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Styling for labels */
+select {
+    background-color: #DA70D6; /* MediumOrchid */
+    padding: 10px 20px;
+    width: 200px; 
+    height: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px; 
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+input {
+    background-color: #DA70D6; /* MediumOrchid */
+    padding: 10px 20px;
+    width: 200px; 
+    height: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px; 
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+#traineeList {
+    background-color: #DDA0DD; /* Plum */
+    padding: 15px 32px;
+    font-weight: bold;
+    position: fixed;
+    bottom: 45%;
+    left: 45%; 
+    display: inline-block;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Styling for the "Get Trainees" button */
+#traineeSelectionForm button { 
+    background-color: #EE82EE; 
+    padding: 15px 32px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px; 
+    display: inline-block;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+/* Styling for the "Get Trainees" button when clicked */
+#traineeSelectionForm button:hover {
+    background-color: #DA70D6; /* Darker shade of blue on hover */
+}
+
+#traineeSelectionForm button:active {
+    transform: translateY(2px); /* Move button down slightly when clicked */
+}
