@@ -56,7 +56,7 @@ def get_trainees():
             if sort == 'Name':
                 sort="ORDER BY t.name ASC"
             elif sort == 'Score':
-                sort="HAVING AVG(e.score)\nORDER BY AVG(e.score)"
+                sort="HAVING AVG(e.score)\nORDER BY AVG(e.score) DESC"
             else:
                 sort=""
             
