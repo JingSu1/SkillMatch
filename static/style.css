@@ -1,0 +1,125 @@
+/* CSS stylesheet for web application */
+
+/* Logo styling */
+.logo {
+    position: fixed;
+    top: 32px;
+    right: 100;
+    width: 300px; 
+    height: 450px; 
+    background-image: url('https://media.licdn.com/dms/image/D4E16AQFvTqjumLAfBg/profile-displaybackgroundimage-shrink_200_800/0/1711395887921?e=2147483647&v=beta&t=SR3is6G4Rksizrk6N1abtASc16oHlOMCBOuTUJXjdyY');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10000; /* 确保在 h1 之上 */  
+}
+
+/* Wallpaper styling */
+body {  
+    background-image: url('https://fjwp.s3.amazonaws.com/blog/wp-content/uploads/2021/11/10093332/8-Ways-to-Figure-Out-What-Jobs-Match-Your-Skills.jpg');  
+    background-size: cover; /* 图片覆盖整个容器 */  
+    background-repeat: no-repeat; /* 图片不重复 */  
+    background-attachment: fixed; /* 图片固定在视口中，不随页面滚动 */  
+    background-position: center; /* 图片居中显示 */  
+}
+
+/* Center-align and increase size of "Skill Match" title */
+h1 {  
+    position: fixed; /* 修正了拼写错误 */  
+    top: 0;  
+    left: 0; /* 你可以添加一些 padding 来控制标签与页面左侧的距离 */  
+    width: 100%; /* 让标签占据整个页面宽度 */  
+    text-align: center; /* 让文本在标签中居中 */  
+    font-size: 100px;  
+    color: #8B008B;  
+    padding: 10px 0; /* 上下内边距，你可以根据需要调整 */  
+    margin: 0; /* 移除默认的 margin */  
+    background-color: rgba(255, 255, 255, 0.7); /* 可选的半透明背景色 */  
+    z-index: 9999; /* 确保标签在其他内容之上 */  
+}
+
+
+/* 仅针对第一个 label 元素设置更大的上边距 */  
+label:first-of-type {  
+    margin-top: 200px; /* 调整这个值以改变起始位置下移的距离 */  
+}  
+
+/* Styling for labels */
+label {
+    background-color: #DA70D6; /* MediumOrchid */
+    padding: 15px 32px;
+    top: 200px;
+    width: 100px; 
+    height: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px; 
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Styling for labels */
+select {
+    background-color: #DA70D6; /* MediumOrchid */
+    padding: 10px 20px;
+    width: 200px; 
+    height: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px; 
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+input {
+    background-color: #DA70D6; /* MediumOrchid */
+    padding: 10px 20px;
+    width: 200px; 
+    height: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px; 
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+#traineeList {
+    background-color: #DDA0DD; /* Plum */
+    padding: 15px 20px;
+    font-weight: bold;
+    position: fixed;
+    display: inline-block;
+    top:130px;
+    right: 300px; 
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Styling for the "Get Trainees" button */
+#traineeSelectionForm button { 
+    background-color: #EE82EE; 
+    padding: 15px 32px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px; 
+    display: inline-block;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+/* Styling for the "Get Trainees" button when clicked */
+#traineeSelectionForm button:hover {
+    background-color: #DA70D6; /* Darker shade of blue on hover */
+}
+
+#traineeSelectionForm button:active {
+    transform: translateY(2px); /* Move button down slightly when clicked */
+}
